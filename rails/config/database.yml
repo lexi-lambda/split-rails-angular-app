@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+
+local_default: &local_default
+  <<: *default
+  min_messages: warning
+  pool: 2
+  timeout: 5000
+  host: localhost
+
+development:
+  <<: *local_default
+  database: rstatus_development
+
+test:
+  <<: *local_default
+  database: rstatus_test
+
+staging:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
