@@ -1,0 +1,3 @@
+<p>Welcome, <%= @email %>!</p>
+
+<p>To confirm your email, go to <a href="<%= "#{ENVied.FRONTEND_URL}/sign-up/confirm/#{@token}" %>"><%= "#{ENVied.FRONTEND_URL}/sign-up/confirm/#{@token}" %></a></p>

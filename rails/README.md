@@ -1,4 +1,4 @@
-# Rstatus
+# RStatus
 
 ## Setup
 

@@ -15,7 +15,9 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Rstatus
+ENVied.require :default, Rails.env
+
+module RStatus
   class Application < Rails::Application
     config.i18n.enforce_available_locales = true
 
@@ -31,6 +33,25 @@ module Rstatus
     end
 
     config.assets.enabled = false
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource(
+          '*',
+          headers: :any,
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          methods: [:get, :post, :options, :delete, :put]
+        )
+      end
+    end
+    config.middleware.insert_before(
+      ActionDispatch::Cookies,
+      Rack::StripCookies,
+      paths: ['/v1']
+    )
+
+    config.autoload_paths << Rails.root.join('app/services')
 
     config.action_controller.action_on_unpermitted_parameters = :raise
     # Settings in config/environments/* take precedence over those specified here.

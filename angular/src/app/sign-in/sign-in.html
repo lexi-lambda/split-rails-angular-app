@@ -1,0 +1,33 @@
+<div flex layout="column" layout-align="start center">
+  <md-card layout="column" class="small-panel-card root-panel-card">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>Sign In to RStatus</h1>
+        <span flex></span>
+        <md-button ui-sref="sign-up">Sign Up</md-button>
+      </div>
+    </md-toolbar>
+
+    <md-content flex layout-fill layout="column" layout-align="center center">
+      <div ng-if="vm.error">
+        <md-subheader class="md-warn">{{vm.error}}</md-subheader>
+      </div>
+
+      <md-progress-circular ng-if="vm.isLoading" md-mode="indeterminate"></md-progress-circular>
+
+      <form flex layout-fill name="signIn" ng-if="!vm.isLoading" ng-submit="vm.submitSignIn()" novalidate layout-padding>
+        <md-input-container>
+          <label for="email">Email</label>
+          <input name="email" type="email" ng-model="vm.signIn.email" required>
+        </md-input-container>
+        <md-input-container>
+          <label for="password">Password</label>
+          <input name="password" type="password" ng-model="vm.signIn.password" required>
+        </md-input-container>
+        <md-input-container>
+          <md-button class="md-raised md-primary" ng-disabled="signIn.$invalid || signIn.$pending">Sign In</md-button>
+        </md-input-container>
+      </form>
+    </md-content>
+  </md-card>
+</div>

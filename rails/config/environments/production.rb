@@ -28,12 +28,6 @@ Rails.application.configure do
   # Enable deflate / gzip compression of controller-generated responses
   config.middleware.use Rack::Deflater
 
-  # Ensure requests are only served from one, canonical host name
-  config.middleware.use Rack::CanonicalHost, ENV.fetch('HOST')
-
-  # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
-
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
@@ -71,5 +65,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: ENV.fetch('HOST') }
+  config.action_mailer.default_url_options = { host: ENVied.HOST }
 end

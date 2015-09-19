@@ -1,5 +1,10 @@
 angular.module 'rstatus', [
   'ngMaterial'
-  'restangular'
+  'ngMessages'
+  'ngStorage'
+  'platanus.inflector'
+  'rails'
+  'rstatus.constants'
   'ui.router'
+  'validation.match'
 ]

@@ -1,0 +1,16 @@
+enable_defaults!
+
+variable :DEVISE_PEPPER
+variable :DEVISE_SECRET_KEY
+variable :FRONTEND_URL
+variable :JSON_WEB_TOKEN_SECRET
+
+group :development, :test do
+  variable :AIRBRAKE_API_KEY, default: ''
+  variable :HOST, default: ''
+end
+
+group :staging, :production do
+  variable :AIRBRAKE_API_KEY
+  variable :HOST
+end

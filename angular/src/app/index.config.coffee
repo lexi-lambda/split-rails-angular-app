@@ -1,4 +1,6 @@
 angular.module 'rstatus'
-  .config ($logProvider, $locationProvider) ->
-    $logProvider.debugEnabled true
+  .config ($httpProvider, $locationProvider, $logProvider) ->
+    $httpProvider.interceptors.push 'authInterceptor'
+
     $locationProvider.html5Mode true
+    $logProvider.debugEnabled true

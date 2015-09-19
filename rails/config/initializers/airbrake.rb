@@ -1,5 +1,5 @@
-if ENV.include?('AIRBRAKE_API_KEY')
+if ENVied.AIRBRAKE_API_KEY.present?
   Airbrake.configure do |config|
-    config.api_key = ENV.fetch('AIRBRAKE_API_KEY')
+    config.api_key = ENVied.AIRBRAKE_API_KEY
   end
 end

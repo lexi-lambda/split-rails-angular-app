@@ -1,5 +1,27 @@
 // bower:scss
 // endbower
 
+.small-panel-card {
+  min-height: 200px;
+  width: 500px;
+}
+
+.root-panel-card {
+  margin-top: 50px;
+}
+
+[resource-errors] {
+  order: 3;
+  position: relative;
+}
+
+.resource-error {
+  color: rgb(244, 67, 54);
+  font-size: 12px;
+  line-height: 24px;
+  padding-right: 30px;
+  position: absolute;
+}
+
 // injector
 // endinjector

@@ -1,0 +1,24 @@
+<div flex layout="column" layout-align="start center">
+  <md-card layout="column" class="small-panel-card root-panel-card">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h1>Confirm Email</h1>
+      </div>
+    </md-toolbar>
+
+    <md-content flex layout-fill layout="column" layout-align="center center">
+      <div ng-switch="vm.status">
+        <md-progress-circular ng-switch-when="loading" md-mode="indeterminate"></md-progress-circular>
+
+        <div ng-switch-when="success" layout="column" layout-align="start center">
+          <p>Your email has been successfully confirmed. You may now sign in.</p>
+          <md-button ui-sref="sign-in" class="md-primary">Sign In</md-button>
+        </div>
+
+        <div ng-switch-when="failure">
+          <p>Your email could not be successfuly confirmed.</p>
+        </div>
+      </div>
+    </md-content>
+  </md-card>
+</div>
