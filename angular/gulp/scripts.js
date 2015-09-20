@@ -9,7 +9,9 @@ var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')();
 
 gulp.task('scripts', function () {
-  return gulp.src(path.join(conf.paths.src, '/app/**/*.coffee'))
+  return gulp.src([path.join(conf.paths.src, '/app/**/*.coffee'),
+                   path.join('!' + conf.paths.src, '/app/**/*.spec.coffee'),
+                   path.join('!' + conf.paths.src, '/app/**/*.mock.coffee')])
     .pipe($.sourcemaps.init())
     .pipe($.coffeelint())
     .pipe($.coffeelint.reporter())
